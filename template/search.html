@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Search </title>
+</head>
+<style>
+
+    body {
+
+        background-color: rgb(228, 236, 253);
+
+    }
+.table-responsive {
+    max-height: 35em; 
+}
+
+
+.table{
+    width:130%;
+    font-size: xx-small;
+}
+
+th{
+        font-family: Helvetica;
+        color: rgb(255, 255, 255);
+        font-size: small;
+        
+
+    }
+
+thead > tr> th {
+    background: cornflowerblue;
+    position: -webkit-sticky;
+    position: -moz-sticky;
+    position: -ms-sticky;
+    position: -o-sticky;
+    position: sticky;
+    top: 0px;
+}
+
+
+</style>
+
+
+<body>
+
+    <div class="container-fluid">
+        <div class="card text-left" style="margin-bottom: 0%;">
+            <div class="card-body" style="background-color:  cornflowerblue;">
+                <h4 class="card-title" style="color: aliceblue;">Quality</h4>
+                <p class="card-text" style="color: aliceblue;">Check </p>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <div class="container-fluid">
+        <form method="post">
+            {% csrf_token %}
+
+            <div class="card-body">
+                From <input type="date" name="fromdate" required style="max-width: 200px;">
+                To <input type="date" name="todate" required style="max-width: 200px;">
+                <!-- <input type="text" name="farms"  style="max-width: 200px;"> -->
+
+                <button type="submit" class="btn btn-primary" style="font-size: smaller;">Search</button> |
+                <a name="" id="" class="btn btn-secondary" href="http://127.0.0.1:8000/" role="button"
+                    style="margin-right: 10%;">Back </a>
+
+                From : <b style="color: rgb(255, 0, 0); margin-right: 5%;">{{x}}</b>
+                To : <b style="color: rgb(255, 0, 0);">{{z}}</b>
+
+            </div>
+
+
+
+            <div  style="text-align: center;">
+                
+
+                        <div class="card border-secondary  table-responsive ">
+
+
+                            <table class="table table-sm table-hover table-bordered "
+                                style=" border: 5px;">
+
+                                <thead >
+                                    <tr>
+
+                                        <th scope="col">Tracks</th>
+                                        <th scope="col">Farms</th>
+                                        <th scope="col">Date</th>
+                                        <th scope="col" style="font-size: x-small;">AOW</th>
+                                        <th scope="col" style="font-size: x-small;">DOA</th>
+                                        <th scope="col" style="font-size: x-small;">Total Condemenna</th>
+                                        <th scope="col" style="font-size: x-small;">Ascites</th>
+                                        <th scope="col" style="font-size: x-small;">Septicemia</th>
+                                        <th scope="col" style="font-size: x-small;">Runts&Culls</th>
+                                        <th scope="col" style="font-size: x-small;">Dermatitis</th>
+                                        <th scope="col" style="font-size: x-small;">Others</th>
+                                        <th scope="col" style="font-size: x-small;">Gangrene</th>
+                                        <th scope="col" style="font-size: x-small;">whuole Bruises</th>
+                                        <th scope="col" style="font-size: x-small;">Pneumodermia</th>
+                                        <th scope="col" style="font-size: x-small;">Synovitis</th>
+                                        <th scope="col" style="font-size: x-small;">Jaundice</th>
+                                        <th scope="col" style="font-size: x-small;">Over scaled</th>
+                                        <th scope="col" style="font-size: x-small;">Poor Bleeding</th>
+                                        <th scope="col" style="font-size: x-small;">Machin Damage</th>
+                                        <th scope="col" style="font-size: x-small;">Wing Bruises</th>
+                                        <th scope="col" style="font-size: x-small;">Wing Broken</th>
+                                        <th scope="col" style="font-size: x-small;">Wing Dislocation</th>
+                                        <th scope="col" style="font-size: x-small;">Breast Bruises</th>
+                                        <th scope="col" style="font-size: x-small;">Breast skin lesion</th>
+                                        <th scope="col" style="font-size: x-small;">Breast Laceration</th>
+                                        <th scope="col" style="font-size: x-small;">Legs Bruises</th>
+                                        <th scope="col" style="font-size: x-small;">Legs Scratch</th>
+                                        <th scope="col" style="font-size: x-small;">Legs Old Injury</th>
+                                        <th scope="col" style="font-size: x-small;">Legs Fractures</th>
+                                        <th scope="col" style="font-size: x-small;">Feet burn</th>
+                                        <th scope="col" style="font-size: x-small;">Feet Broken</th>
+                                    </tr>
+                                </thead>
+
+
+
+                                {% for i in re %}
+                                <tbody>
+                                    
+                                        <td>
+                                            {{i.trucks}}
+                                        </td>
+                                        <td>
+                                            {{i.farms}}
+                                        </td>
+                                    
+
+                                        <td>
+                                            {{i.date}}
+                                        </td>
+                                    
+                                        <td>
+                                            {{i.alw|default:'0'}}
+                                        </td>
+                                        <td>
+                                            {{i.doa|default:'0'}}
+                                        </td>
+                                        <td>
+                                            {{i.total_condemenna|default:'0'}}
+                                        </td>
+                                        <td>
+                                            {{i.ascites|default:'0'}}
+                                        </td>
+                                        <td>
+                                            {{i.septicemia|default:'0'}}
+                                        </td>
+                                        <td>
+                                            {{i.runts_culls|default:'0'}}
+                                        </td>
+                                        <td>
+                                            {{i.dermatitis|default:'0'}}
+                                        </td>
+                                        <td>
+                                            {{i.others|default:'0'}}
+                                        </td>
+                                        <td>
+                                            {{i.gangrene|default:'0'}}
+                                        </td>
+                                        <td>
+                                            {{i.whuole_bruises|default:'0'}}
+                                        </td>
+                                        <td>
+                                            {{i.peneumodermia|default:'0'}}
+                                        </td>
+                                        <td>
+                                            {{i.synovitis_arthritis|default:'0'}}
+                                        </td>
+                                        <td>
+                                            {{i.jaundice|default:'0'}}
+                                        </td>
+                                        <td>
+                                            {{i.over_scaled|default:'0'}}
+                                        </td>
+                                        <td>
+                                            {{i.poor_bleeding|default:'0'}}
+                                        </td>
+                                        <td>
+                                            {{i.machine_damage|default:'0'}}
+                                        </td>
+                                        <td>
+                                            {{i.wing_bruises|default:'0'}}
+                                        </td>
+                                        <td>
+                                            {{i.wing_broken|default:'0'}}
+                                        </td>
+                                        <td>
+                                            {{i.wing_dislocation|default:'0'}}
+                                        </td>
+                                        <td>
+                                            {{i.breast_bruises|default:'0'}}
+                                        </td>
+                                        <td>
+                                            {{i.breast_skin_lesion|default:'0'}}
+                                        </td>
+                                        <td>
+                                            {{i.breast_laceration|default:'0'}}
+                                        </td>
+                                        <td>
+                                            {{i.legs_bruises|default:'0'}}
+                                        </td>
+                                        <td>
+                                            {{i.legs_scrach|default:'0'}}
+                                        </td>
+                                        <td>
+                                            {{i.legs_old_injury|default:'0'}}
+                                        </td>
+                                        <td>
+                                            {{i.legs_fractures|default:'0'}}
+                                        </td>
+                                        <td>
+                                            {{i.feet_ammonia_burn|default:'0'}}
+                                        </td>
+                                        <td>
+                                            {{i.feet_broken|default:'0'}}
+                                        </td>
+                                    
+                                
+                                    
+                                     
+                                    </tbody>
+                                    {% endfor %}
+                            </table>
+
+                        </div>
+
+                    
+                
+            </div>
+        </form>
+
+
+    </div>
+
+    </div>
+
+    </div>
+
+
+
+
+
+
+
+</body>
+
+</html>

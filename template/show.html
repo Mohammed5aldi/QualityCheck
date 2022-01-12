@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<title>Export</title>
+</head>
+<style>
+    body {
+
+        background-color: rgb(228, 236, 253);
+
+
+    }
+</style>
+
+<body>
+    <div class="container-fluid">
+        <div>
+            <div>
+                <div class="card text-left" style="margin-bottom: 1%; ">
+
+                    <div class="card-body" style="background-color: cornflowerblue; ">
+                        <h4 class="card-title" style="color: aliceblue;">Quality</h4>
+                        <p class="card-text" style="color: aliceblue;">Check </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container ">
+
+
+        <form method="GET">
+            {% csrf_token %}
+            <div class="container" style="padding-bottom: 1%;">
+
+                <div class="row">
+
+                    <div class="col-"> {{myfilter.form}}</div>
+
+                    <div class="col-3">
+                        <BUTton type="submit" class="btn btn-outline-primary">Search</BUTton> |
+                        {% if date %}
+                        <a href="{% url 'export-excel' %}?date={{date}}" class="btn btn-outline-danger">Export To
+                            Excel</a>
+                        {% endif %}
+                    </div>
+
+
+
+
+                </div>
+
+
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <div class="table table-responsive  card border-primary;  " style=" text-align: center;">
+
+                <table class="table-sm" style="font-size: xx-small; ">
+
+
+                    <thead>
+                        <form method="POST">
+
+
+                            {% for i in view_dataExcel %}
+                            <th style="color: red;">{{i}}</th>
+                            {% endfor %}
+
+
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            {% for i in view_dataExcel %}
+                            <th style="color: blue;">{{i.farms}}</th>
+                            {% endfor %}
+                        </tr>
+                        <tr>
+                            {% for i in view_dataExcel %}
+                            <th style="color:brown;">{{i.date}}</th>
+                            {% endfor %}
+                        </tr>
+                        <tr>
+                            {% for i in view_dataExcel %}
+                            <td>{{i.AOW|default:'0'}}</td>
+                            {% endfor %}
+                        </tr>
+                        <tr>
+                            {% for i in view_dataExcel %}
+                            <td>{{i.DOA|default:'0'}}</td>
+                            {% endfor %}
+                        </tr>
+                        <tr>
+                            {% for i in view_dataExcel %}
+                            <td>{{i.total_condemenna|default:'0'}}</td>
+                            {% endfor %}
+                        </tr>
+                        <tr>
+                            {% for i in view_dataExcel %}
+                            <td>{{i.ascites|default:'0'}}</td>
+                            {% endfor %}
+                        </tr>
+                        <tr>
+                            {% for i in view_dataExcel %}
+                            <td>{{i.septicemia|default:'0'}}</td>
+                            {% endfor %}
+                        </tr>
+                        <tr>
+                            {% for i in view_dataExcel %}
+                            <td>{{i.runts_culls|default:'0'}}</td>
+                            {% endfor %}
+                        </tr>
+                        <tr>
+                            {% for i in view_dataExcel %}
+                            <td>{{i.dermatitis|default:'0'}}</td>
+                            {% endfor %}
+                        </tr>
+                        <tr>
+                            {% for i in view_dataExcel %}
+                            <td>{{i.others|default:'0'}}</td>
+                            {% endfor %}
+                        </tr>
+                        <tr>
+                            {% for i in view_dataExcel %}
+                            <td>{{i.gangrene|default:'0'}}</td>
+                            {% endfor %}
+                        </tr>
+                        <tr>
+                            {% for i in view_dataExcel %}
+                            <td>{{i.whuole_bruises|default:'0'}}</td>
+                            {% endfor %}
+                        </tr>
+                        <tr>
+                            {% for i in view_dataExcel %}
+                            <td>{{i.peneumodermia|default:'0'}}</td>
+                            {% endfor %}
+                        </tr>
+                        <tr>
+                            {% for i in view_dataExcel %}
+                            <td>{{i.synovitis_arthritis|default:'0'}}</td>
+                            {% endfor %}
+                        </tr>
+                        <tr>
+                            {% for i in view_dataExcel %}
+                            <td>{{i.jaundice|default:'0'}}</td>
+                            {% endfor %}
+                        </tr>
+                        <tr>
+                            {% for i in view_dataExcel %}
+                            <td>{{i.over_scaled|default:'0'}}</td>
+                            {% endfor %}
+                        </tr>
+                        <tr>
+                            {% for i in view_dataExcel %}
+                            <td>{{i.poor_bleeding|default:'0'}}</td>
+                            {% endfor %}
+                        </tr>
+                        <tr>
+                            {% for i in view_dataExcel %}
+                            <td>{{i.machine_damage|default:'0'}}</td>
+                            {% endfor %}
+                        </tr>
+                        <tr>
+                            {% for i in view_dataExcel %}
+                            <td>{{i.wing_bruises|default:'0'}}</td>
+                            {% endfor %}
+                        </tr>
+                        <tr>
+                            {% for i in view_dataExcel %}
+                            <td>{{i.wing_broken|default:'0'}}</td>
+                            {% endfor %}
+                        </tr>
+                        <tr>
+                            {% for i in view_dataExcel %}
+                            <td>{{i.wing_dislocation|default:'0'}}</td>
+                            {% endfor %}
+                        </tr>
+                        <tr>
+                            {% for i in view_dataExcel %}
+                            <td>{{i.breast_bruises|default:'0'}}</td>
+                            {% endfor %}
+                        </tr>
+                        <tr>
+                            {% for i in view_dataExcel %}
+                            <td>{{i.breast_skin_lesion|default:'0'}}</td>
+                            {% endfor %}
+                        </tr>
+                        <tr>
+                            {% for i in view_dataExcel %}
+                            <td>{{i.breast_laceration|default:'0'}}</td>
+                            {% endfor %}
+                        </tr>
+                        <tr>
+                            {% for i in view_dataExcel %}
+                            <td>{{i.legs_bruises|default:'0'}}</td>
+                            {% endfor %}
+                        </tr>
+                        <tr>
+                            {% for i in view_dataExcel %}
+                            <td>{{i.legs_scrach|default:'0'}}</td>
+                            {% endfor %}
+                        </tr>
+                        <tr>
+                            {% for i in view_dataExcel %}
+                            <td>{{i.legs_old_injury|default:'0'}}</td>
+                            {% endfor %}
+                        </tr>
+                        <tr>
+                            {% for i in view_dataExcel %}
+                            <td>{{i.legs_fractures|default:'0'}}</td>
+                            {% endfor %}
+                        </tr>
+                        <tr>
+                            {% for i in view_dataExcel %}
+                            <td>{{i.feet_ammonia_burn|default:'0'}}</td>
+                            {% endfor %}
+                        </tr>
+                        <tr>
+                            {% for i in view_dataExcel %}
+                            <td>{{i.feet_broken|default:'0'}}</td>
+                            {% endfor %}
+                        </tr>
+                        <tr>
+
+                        </tr>
+
+                    </tbody>
+
+            </div>
+
+
+    </div>
+
+    </table>
+
+
+
+
+
+    </form>
+    </div>
+
+    </div>
+
+
+
+
+    <div style="margin: 15px ;">
+        <a name="" id="" class="btn btn-danger" href="http://127.0.0.1:8000/" role="button">Back</a>
+    </div>
+
+
+</body>
+
+</html>
